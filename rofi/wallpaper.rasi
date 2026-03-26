@@ -1,0 +1,87 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons: true;
+}
+
+* {
+    /* Colors - adjust these to match your setup */
+    bg: rgba(0, 0, 0, 0.6);          /* Dark background */
+    fg: #cdd6f4;          /* Light text */
+    accent: #00000000;      /* Blue accent (VS Code style) */
+    border-col: #313244;
+    
+    background-color: @bg;
+    text-color: @fg;
+    font: "Iosevka Nerd Font 12";
+}
+
+window {
+    transparency: "real";
+    location: west;
+    anchor: west;
+
+    width: 335px;
+    height: 60%;
+    padding: 25px;
+    border-radius: 0px 30px 30px 0px;
+
+    background-image: url("~/.config/wallpaper/"); /* 1050x650px */
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+mainbox {
+    enabled:            true;
+    background-color:   transparent;
+    children:           [ "listview" ];
+}
+
+listview {
+    enabled:            true;
+    columns:            1;
+    lines:              5;
+    cycle:              false;
+    dynamic:            true;
+    scrollbar:          false;
+    layout:             vertical;
+    reverse:            false;
+    fixed-height:       true;
+    fixed-columns:      true;
+
+    padding: 40px 10px 20px 10px;
+    spacing:            15px;
+    background-color:   transparent;
+}
+
+element {
+    enabled:            true;
+    spacing:            0px;
+    margin:             0px;
+    padding:            0px;
+    border-radius:      15px;
+    background-color:   transparent;
+    cursor:             pointer;
+    orientation:        vertical;
+    
+
+    width:              200px;
+    height:             280px;
+}
+
+element-icon {
+    size:               225px;
+    expand:             true;
+    horizontal-align:   0.5;
+    vertical-align:     0.5;
+    border-radius:      15px;
+}
+
+/* Add this to see which one you are hovering over */
+element selected {
+    background-color:   rgba(255, 255, 255, 0.3);
+    border:             2px;
+    border-color:       @accent;
+}
+
+element-text {
+    enabled:            false;    /* Hide text so the image is the whole button */
+}
