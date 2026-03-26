@@ -1,0 +1,138 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons: true;
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    width: 1050px;
+    height: 650px;
+    padding: 25px;
+    border-radius: 30px;
+    background-image: url("/home/bamblurboo/.config/rofiwallpaper/1.png"); /* 1050x650px */
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled: true;
+    width: 1000px;
+    height: 600px;
+    spacing: 30px;
+    border-radius: 25px;
+    background-color: rgba(16, 16, 16, 0.5);
+
+    /* Align children to the bottom */
+    vertical-align: 1;
+    horizontal-align: 0.5;
+
+    children: ["inputbar", "message", "listview"];
+}
+
+/*****----- Input Bar -----*****/
+inputbar {
+    enabled: true;
+    expand: false;
+    spacing: 20px;
+    padding: 25px 20px; /* top/bottom | left/right */
+    background-color: rgba(0, 0, 0, 0);
+    children: ["entry", "prompt"];
+}
+
+/* Entry Text Box */
+entry {
+    anchor: center;
+    padding: 5px 20px 5px 10px; /* top | right | bottom | left */
+    cursor-color: rgba(16, 16, 16, 0);
+    border-radius: 25px;
+    background-color: rgba(16, 16, 16, 0.3);
+    text-color: rgb(255, 255, 255);
+}
+
+/* Prompt Text (optional) */
+prompt {
+    enabled: false;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0);
+    text-color: rgb(0, 0, 0);
+}
+
+/*****----- Listview (Bottom Grid) -----*****/
+listview {
+    enabled: true;
+    expand: false;
+    columns: 3;
+    lines: 3;
+
+    /* Padding: top | right | bottom | left */
+    padding: 0px 50px 20px 50px;
+    spacing: 20px;
+    cycle: false;
+    scrollbar: false;
+
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/*****----- List Elements -----*****/
+element {
+    enabled: true;
+    padding: 0px 0px; /* top | right | bottom | left */
+    spacing: 10px;
+    border: 0px solid;
+    border-radius: 12px;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    text-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    orientation: vertical;
+}
+
+/* Icon inside element */
+element-icon {
+    size: 90px;
+    background-color: transparent;
+}
+
+/* Text inside element */
+element-text {
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+}
+
+element normal.normal,
+
+/*****----- Listview Elements-----*****/
+
+/* Normal alternating row */
+element alternate.normal {
+    background-color: rgba(0, 0, 0, 0);
+    text-color: rgb(255, 255, 255);
+}
+
+/* Selected row */
+element selected.normal {
+    background-color:           rgba(0, 0, 0, 0.67);
+    text-color:                 rgba(255, 255, 255, 1);
+}
+
+/* Active / Urgent states */
+element normal.urgent,
+element alternate.urgent,
+element selected.active {
+    background-color:           rgba(0, 123, 0, 1);
+    text-color:                 rgba(0, 251, 126, 1);
+}
+
+element normal.active,
+element alternate.active,
+element selected.urgent {
+    background-color:           rgba(0, 123, 0, 1);
+    text-color:                 rgba(0, 251, 126, 1);
+}
