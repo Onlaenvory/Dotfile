@@ -141,6 +141,8 @@ window#waybar {
 #tray {
     min-width: 35px;
     border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 
     background-color: rgba(42, 42, 42, 0.75) ;
 }

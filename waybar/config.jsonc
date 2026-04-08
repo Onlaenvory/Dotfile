@@ -109,6 +109,8 @@
 */
 
     "tray": {
+        "max-length": 16,
+        "spacing": 10
     },
 
     "network": {

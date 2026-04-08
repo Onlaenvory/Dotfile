@@ -43,6 +43,16 @@ case "$CURRENT_THEME" in
     cp "$THEME_DIR/purple/config.conf" "$THEME_DIR/current.conf"
     cp "$THEME_DIR/purple/style.css" "$THEME_DIR/current.css"
     ;;
+
+  roxy)
+    cp "$THEME_DIR/roxy/config.conf" "$THEME_DIR/current.conf"
+    cp "$THEME_DIR/roxy/style.css" "$THEME_DIR/current.css"
+    ;;
+
+  pastel-green)
+    cp "$THEME_DIR/pastel-green/config.conf" "$THEME_DIR/current.conf"
+    cp "$THEME_DIR/pastel-green/style.css" "$THEME_DIR/current.css"
+    ;;
   *)
     echo "Unknown theme: $CURRENT_THEME"
     exit 1

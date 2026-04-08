@@ -38,7 +38,7 @@ if [ ! -z "$SELECTED" ]; then
         "CottonA.jpg")
             ~/.config/script/theme-selection.sh Cotton-Candy
             ;;
-        "1TK.jpg")
+        "1TK.jpg" | "Roxy2.jpg")
             ~/.config/script/theme-selection.sh hazy-blue
             ;;
         "Black.jpg")
@@ -46,6 +46,14 @@ if [ ! -z "$SELECTED" ]; then
             ;;
         "PurpleA.jpg")
             ~/.config/script/theme-selection.sh purple
+            ;;
+
+        "Roxy.jpg")
+            ~/.config/script/theme-selection.sh roxy
+            ;;
+
+        "Sylp.png")
+            ~/.config/script/theme-selection.sh pastel-green
             ;;
     esac
 fi

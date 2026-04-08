@@ -1,0 +1,28 @@
+# --- Global Settings ---
+max-visible=5
+sort=-time
+layer=top
+anchor=top-right
+
+# The 'geometry' line is key for the "small box" look
+# format: width-height
+width=250
+height=75
+margin=10
+padding=10
+border-size=2
+border-radius=8
+
+# Colors & Fonts
+font=JetBrainsMono Nerd Font 9
+background-color=#2A2A2AFF
+text-color=#FFFFFFFF
+border-color=#2f8ed4FF
+
+# --- Urgency Levels ---
+[urgency=low]
+border-color=#333333FF
+
+[urgency=critical]
+border-color=#bf616aff
+default-timeout=0
