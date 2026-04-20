@@ -21,13 +21,13 @@
         "pulseaudio",
         "network",
         // "power-profiles-daemon",
+        "custom/keyboard_battery",
         "cpu",
         "memory",
         // "temperature",
         // "backlight",
         // "keyboard-state",
         // "sway/language",
-        // "battery",
         // "battery#bat2",
         "tray"
     ],
@@ -108,6 +108,19 @@
     ---------------------------------------------------  
 */
 
+  "group/tray-group": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio",
+      "network",
+      "custom/keyboard_battery",
+      "cpu",
+      "memory",
+      "tray"
+    ]
+  },
+
+  
     "tray": {
         "max-length": 16,
         "spacing": 10
@@ -122,24 +135,47 @@
         "tooltip-format": "{essid} - {ifname} via {gwaddr}"
     },
     
-    "pulseaudio": {
-        "format": "{volume}% {icon}  {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+  "pulseaudio": {
+    "format": "{volume}% {icon}  {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "default": ["", "", ""]
     },
+    "on-click": "pavucontrol"
+  },
+
+  "custom/keyboard_battery": {
+    "exec": "upower -i /org/freedesktop/UPower/devices/battery_hid_dco2co26o2coaeo29_battery | awk '/percentage:/ {print substr($2, 1, length($2)-1)}'",
+    "interval": 120,
+    "return-type": "", 
+    "format": "  {}%",
+    "states": {
+      "high": 80,
+      "medium": 40,
+      "low": 20,
+      "critical": 10
+    },
+    "tooltip": true
+  },
+
+    "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+},
 
 
 
@@ -157,9 +193,7 @@
 
 
 
-
-
-
+    
     "group/x": {
         "orientation": "vertical",
         "drawer": {
@@ -171,36 +205,42 @@
         "modules": [
             "custom/menu-icon", // The first module is always visible
             "cpu",             // These are hidden until you click
-            "memory",
-            "battery"
+            "memory"
         ]
     },
 
-    
     "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
     },
 
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+  "cpu": {
+    "format": "{usage}% ",
+    "states": {
+      "warning": 70,
+      "critical": 90
     },
-
+    "tooltip": false,
+    "on-click": "kitty btop"
+  },
 
     "memory": {
-        "format": "{}% "
+      "format": "{}% ",
+      "states": {
+        "warning": 70,
+        "critical": 90
+      },
+      "tooltip": false,
+      "on-click": "kitty btop"
     },
 
 

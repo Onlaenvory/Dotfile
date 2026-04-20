@@ -87,7 +87,7 @@ window#waybar {
     ---------------------------------------------------  
 */
 
-    #workspaces {
+#workspaces {
     padding : 1px 25px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -186,17 +186,6 @@ window#waybar {
     color: @text;
 }
 
-#cpu{
-    font-size: 13px;
-    font-style: oblique;
-    font-weight: bold;
-
-    border-radius: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-
-}
-
 #memory{
     font-size: 13px;
     font-style: oblique;
@@ -205,6 +194,62 @@ window#waybar {
     border-radius: 15px;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+#custom-keyboard_battery {
+    background-color: rgba(42, 42, 42, 0.75);
+    color: @text;
+    font-size: 13px;
+    font-style: oblique;
+    font-weight: bold;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: all 0.3s ease; /* Smooth color changes */
+}
+
+/* Specific colors for states */
+#custom-keyboard_battery.high {
+    color: #a6e3a1;
+}
+
+#custom-keyboard_battery.medium {
+    color: #f9e2af;
+}
+
+#custom-keyboard_battery.low {
+    color: #fab387;
+}
+
+#custom-keyboard_battery.critical {
+    color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.2); /* Subtle red glow */
+}
+
+/* CPU */
+#cpu{
+    font-size: 13px;
+    font-style: oblique;
+    font-weight: bold;
+
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#cpu.warning, #memory.warning {
+    background-color: #ebcb8b; /* Yellowish */
+    color: #2e3440;
+}
+
+#cpu.critical, #memory.critical {
+    background-color: #bf616a; /* Reddish */
+    color: #eceff4;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 
@@ -298,7 +343,6 @@ button:hover {
 #disk,
 #temperature,
 #backlight,
-#network,
 #wireplumber,
 #custom-media,
 #mode,

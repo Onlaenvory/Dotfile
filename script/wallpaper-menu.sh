@@ -26,6 +26,9 @@ if [ ! -z "$SELECTED" ]; then
     hyprctl hyprpaper unload all
 
     case "$SELECTED" in
+        "41.png")
+            ~/.config/script/theme-selection.sh 1
+            ;;
         "MidnightA.png")
             ~/.config/script/theme-selection.sh Celestial-Tide
             ;;
@@ -48,7 +51,7 @@ if [ ! -z "$SELECTED" ]; then
             ~/.config/script/theme-selection.sh purple
             ;;
 
-        "Roxy.jpg")
+        "31.jpg")
             ~/.config/script/theme-selection.sh roxy
             ;;
 

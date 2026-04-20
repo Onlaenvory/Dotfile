@@ -53,6 +53,11 @@ case "$CURRENT_THEME" in
     cp "$THEME_DIR/pastel-green/config.conf" "$THEME_DIR/current.conf"
     cp "$THEME_DIR/pastel-green/style.css" "$THEME_DIR/current.css"
     ;;
+
+  1)
+    cp "$THEME_DIR/ocean-blue/config.conf" "$THEME_DIR/current.conf"
+    cp "$THEME_DIR/ocean-blue/style.css" "$THEME_DIR/current.css"
+    ;;
   *)
     echo "Unknown theme: $CURRENT_THEME"
     exit 1
