@@ -16,20 +16,21 @@
 
 
     "modules-right": [
+        "group/rightTray"
         /* "mpd",
         "idle_inhibitor", */
-        "pulseaudio",
-        "network",
+        /* "pulseaudio",
+        "network", */
         // "power-profiles-daemon",
-        "custom/keyboard_battery",
+        /* "custom/keyboard_battery",
         "cpu",
-        "memory",
+        "memory", */
         // "temperature",
         // "backlight",
         // "keyboard-state",
         // "sway/language",
         // "battery#bat2",
-        "tray"
+        /* "tray" */
     ],
 
 
@@ -108,50 +109,132 @@
     ---------------------------------------------------  
 */
 
-  "group/tray-group": {
-    "orientation": "horizontal",
-    "modules": [
-      "pulseaudio",
-      "network",
-      "custom/keyboard_battery",
-      "cpu",
-      "memory",
-      "tray"
-    ]
+"group/rightTray": {
+  "orientation": "horizontal",
+  "modules": [
+    "network",
+    "pulseaudio",
+    "custom/keyboardbattery",
+    "memory",
+    "group/trayDrawer"
+  ]
+},
+
+"network": {
+  "interval": 60,
+
+  "format-wifi": " ",
+  "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+  "format-disconnected": " ",
+  
+  "tooltip": true,
+  "tooltip-format": "{ifname} via {gwaddr} ",
+  "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+  "tooltip-format-disconnected": "Disconnected",
+
+  "max-length": 50
+},
+
+"pulseaudio": {
+  "format": " {volume}%",
+  "format-bluetooth": "{volume}% {icon} ",
+  "format-bluetooth-muted": " {icon} {format_source}",
+  "format-muted": " {format_source}",
+  "format-source": "{volume}% ",
+  "format-source-muted": "",
+  "format-icons": {
+    "headphone": "",
+    "hands-free": "",
+    "headset": "",
+    "phone": "",
+    "portable": "",
+    "default": ["", "", ""]
   },
 
+  "on-click": "pavucontrol",
+  "max-length": 50
+},
+
+"cpu": {
+  "interval": 30,
+
+  "format": " {usage}%",
+  "states": {
+    "warning": 70,
+    "critical": 90
+  },
+
+  "tooltip": false,
+
+  "on-click": "kitty btop",
+  "max-length": 10
+},
+
+"memory": {
+  "interval": 30,
+
+  "format": " {}% ",
+  "states": {
+    "warning": 70,
+    "critical": 90
+  },
+
+  "tooltip": false,
+
+  "on-click": "kitty btop",
+  "max-length": 10
+},
+
+"custom/keyboardbattery": {
+  "interval": 120,
+
+  "return-type": "", 
+  "format": " {}%",
+  "states": {
+    "high": 80,
+    "medium": 40,
+    "low": 20,
+    "critical": 10
+  },
+
+  "exec": "upower -i /org/freedesktop/UPower/devices/battery_hid_dco2co26o2coaeo29_battery | awk '/percentage:/ {print substr($2, 1, length($2)-1)}'",
   
-    "tray": {
+  "tooltip": true
+},
+
+"group/trayDrawer": {
+  "orientation": "inherit",
+  "drawer": {
+    "transition-duration": 500,
+    "children-class": "not-expanded",
+    "transition-left-to-right": false
+  },
+  "modules": [
+    "custom/trayIcon",
+    "tray"
+  ]
+},
+
+"custom/trayIcon": {
+  "format": "",
+
+  "tooltip": false
+},
+
+"tray": {
+  "icon-size": 15,
+  "spacing": 10
+},
+
+
+
+
+
+    /* "tray": {
         "max-length": 16,
         "spacing": 10
     },
 
-    "network": {
-        "interval": 30,
-        "format-wifi": "{icon} {signalStrength}%",
-        "format-ethernet": " {ipaddr}",
-        "format-disconnected": "⚠ Disconnected",
-        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-        "tooltip-format": "{essid} - {ifname} via {gwaddr}"
-    },
-    
-  "pulseaudio": {
-    "format": "{volume}% {icon}  {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "default": ["", "", ""]
-    },
-    "on-click": "pavucontrol"
-  },
 
   "custom/keyboard_battery": {
     "exec": "upower -i /org/freedesktop/UPower/devices/battery_hid_dco2co26o2coaeo29_battery | awk '/percentage:/ {print substr($2, 1, length($2)-1)}'",
@@ -175,7 +258,7 @@
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
-},
+}, */
 
 
 
@@ -194,22 +277,8 @@
 
 
     
-    "group/x": {
-        "orientation": "vertical",
-        "drawer": {
-            "transition-duration": 500,
-        "transition-left-to-right": false, // False means expand toward the top
-        "click-to-reveal": true
-            /* "hover-to-reveal": true */
-        },
-        "modules": [
-            "custom/menu-icon", // The first module is always visible
-            "cpu",             // These are hidden until you click
-            "memory"
-        ]
-    },
-
-    "battery": {
+    
+    /* "battery": {
     "states": {
       "good": 95,
       "warning": 30,
@@ -223,28 +292,8 @@
     "format-icons": ["", "", "", "", ""]
     },
 
-  "cpu": {
-    "format": "{usage}% ",
-    "states": {
-      "warning": 70,
-      "critical": 90
-    },
-    "tooltip": false,
-    "on-click": "kitty btop"
-  },
 
-    "memory": {
-      "format": "{}% ",
-      "states": {
-        "warning": 70,
-        "critical": 90
-      },
-      "tooltip": false,
-      "on-click": "kitty btop"
-    },
-
-
-    "temperature": {
+    /* "temperature": {
         "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
@@ -346,7 +395,7 @@
 			"suspend": "systemctl suspend",
 			"hibernate": "systemctl hibernate"
 		}
-    }
+    } */
 
     /* "bluetooth": {
 	"format": " {status}",

@@ -6,7 +6,6 @@
     ---------------------------------------------------  
 */
 
-
 @import "current_theme.css";
 
 * {
@@ -138,119 +137,141 @@ window#waybar {
     ---------------------------------------------------  
 */
 
-#tray {
-    min-width: 35px;
-    border-radius: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
+#rightTray {
+  /* Colour */
+  /* background-color: rgba(14, 14, 14, 0.75);
+  border: 2px solid alpha(@workspace, 0.375); */
+  background-color: rgba(42, 42, 42, 0.75) ;
 
-    background-color: rgba(42, 42, 42, 0.75) ;
+  /* Title */
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 25px;
 }
 
-#tray > .passive {
+#rightTray label {
+    margin: 0 10px;
+}
+
+#network {
+  /* Colour */
+  color: @network;
+  
+  /* Fonts */
+  font-size: 13px;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+#network.disconnected {
+  /* Colour */
+  color: @disconnected;
+}
+
+#pulseaudio {
+  /* Colour */
+  color: @audio;
+  
+  /* Fonts */
+  font-size: 13px;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+#cpu, #memory {
+  /* Colour */
+  color: @hardware;
+  
+  /* Fonts */
+  font-size: 13px;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+#cpu.warning, #memory.warning {
+  color: #fab387;
+}
+
+#cpu.critical, #memory.critical {
+  color: #f38ba8;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#custom-keyboardbattery {
+  /* Colour */
+  color: @text;
+
+  /* Fonts */
+  font-size: 13px;
+  font-style: oblique;
+  font-weight: bold;
+
+  transition: all 0.3s ease;
+}
+
+#custom-keyboardbattery.high {
+  color: #a6e3a1;
+}
+
+#custom-keyboardbattery.medium {
+  color: #f9e2af;
+}
+
+#custom-keyboardbattery.low {
+  color: #fab387;
+}
+
+#custom-keyboardbattery.critical {
+  color: #f38ba8;
+}
+
+#group-trayDrawer {
+  
+}
+
+#custom-trayIcon {
+  /* Colour */
+  color: @text;
+  
+  /* Fonts */
+  font-size: 13px;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+#tray {
+    padding: 0 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Specific Tray Icon behavior --- */
+/* #tray > .passive {
     -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-
-#network {
-    font-size: 13px;
-    font-style: oblique;
-    font-weight: bold;
-
-    border-radius: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-
-    background-color: rgba(42, 42, 42, 0.75) ;
-    color: @text;
-}
-
-#network.disconnected {
-    background-color: #f53c3c;
-}
-
-#pulseaudio {
-    font-size: 13px;
-    font-style: oblique;
-    font-weight: bold;
-
-    border-radius: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-
-    background-color: rgba(42, 42, 42, 0.75) ;
-    color: @text;
-}
-
-#memory{
-    font-size: 13px;
-    font-style: oblique;
-    font-weight: bold;
-
-    border-radius: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-#custom-keyboard_battery {
-    background-color: rgba(42, 42, 42, 0.75);
-    color: @text;
-    font-size: 13px;
-    font-style: oblique;
-    font-weight: bold;
-    border-radius: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    transition: all 0.3s ease; /* Smooth color changes */
-}
-
-/* Specific colors for states */
-#custom-keyboard_battery.high {
-    color: #a6e3a1;
-}
-
-#custom-keyboard_battery.medium {
-    color: #f9e2af;
-}
-
-#custom-keyboard_battery.low {
-    color: #fab387;
-}
-
-#custom-keyboard_battery.critical {
-    color: #f38ba8;
-    background-color: rgba(243, 139, 168, 0.2); /* Subtle red glow */
-}
-
-/* CPU */
-#cpu{
-    font-size: 13px;
-    font-style: oblique;
-    font-weight: bold;
-
-    border-radius: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-#cpu.warning, #memory.warning {
-    background-color: #ebcb8b; /* Yellowish */
-    color: #2e3440;
-}
-
-#cpu.critical, #memory.critical {
-    background-color: #bf616a; /* Reddish */
-    color: #eceff4;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
+} */
 
 
 
@@ -271,23 +292,17 @@ window#waybar {
 
 
 
-
-
-
-
-
-
-#bluetooth {
+/* #bluetooth {
     background-color: #eb4d4b;
     color: #f9f5d7;
     border-radius: 15px;
     padding: 2px 15px;
     margin: 4px;
-}
+} */
 
-#bluetooth.connected {
-    background-color: #458588; /* Change color when connected (optional) */
-}
+/* #bluetooth.connected {
+    background-color: #458588;
+} */
 
 
 
@@ -417,15 +432,6 @@ button:hover {
 
 label:focus {
     background-color: #000000;
-}
-
-#cpu {
-    background-color: #2ecc71;
-    color: #000000;
-}
-
-#memory {
-    background-color: #9b59b6;
 }
 
 #disk {
