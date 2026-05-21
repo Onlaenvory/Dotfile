@@ -8,7 +8,6 @@
         "custom/spotify"
         /* "custom/vscode" */
     ],
-    
 
     "modules-center": [
         "hyprland/workspaces"

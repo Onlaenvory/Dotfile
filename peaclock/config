@@ -12,7 +12,7 @@ set date on
 #         blue/magenta/cyan/white [bright] | reverse | clear
 # -----------------------------------------------------------------------------
 
-style active-fg #7295e1
+style active-fg #960000
 style inactive-fg clear
 style colon-fg clear
 style inactive-bg clear

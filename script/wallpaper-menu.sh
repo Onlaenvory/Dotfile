@@ -26,37 +26,14 @@ if [ ! -z "$SELECTED" ]; then
     hyprctl hyprpaper unload all
 
     case "$SELECTED" in
-        "41.png")
-            ~/.config/script/theme-selection.sh 1
+        "SunA.jpg")
+            ~/.config/script/theme-selection.sh kissshotEmber
             ;;
-        "MidnightA.png")
-            ~/.config/script/theme-selection.sh Celestial-Tide
+        "6.jpg")
+            ~/.config/script/theme-selection.sh kurisu
             ;;
-        "SunA.jpg" | "SunB.jpg" )
-            ~/.config/script/theme-selection.sh Kissshot-Ember
-            ;;
-        "LightBlueB.png")
-            ~/.config/script/theme-selection.sh Tidal-Wave
-            ;;
-        "CottonA.jpg")
-            ~/.config/script/theme-selection.sh Cotton-Candy
-            ;;
-        "1TK.jpg" | "Roxy2.jpg")
-            ~/.config/script/theme-selection.sh hazy-blue
-            ;;
-        "Black.jpg")
-            ~/.config/script/theme-selection.sh black-white
-            ;;
-        "PurpleA.jpg")
-            ~/.config/script/theme-selection.sh purple
-            ;;
-
-        "31.jpg")
-            ~/.config/script/theme-selection.sh roxy
-            ;;
-
-        "Sylp.png")
-            ~/.config/script/theme-selection.sh pastel-green
+        "4.png")
+            ~/.config/script/theme-selection.sh badApple
             ;;
     esac
 fi

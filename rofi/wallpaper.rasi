@@ -3,18 +3,18 @@ configuration {
     show-icons: true;
 }
 
+
 * {
-    /* Colors - adjust these to match your setup */
-    bg: rgba(0, 0, 0, 0.6);          /* Dark background */
-    fg: #cdd6f4;          /* Light text */
-    accent: #00000000;      /* Blue accent (VS Code style) */
-    border-col: #313244;
-    
-    background-color: @bg;
-    text-color: @fg;
-    font: "Iosevka Nerd Font 12";
+  background: rgba(0, 0, 0, 0.6);
+  fg: #cdd6f4;
+  accent: #00000000;
+  border-col: #313244;  
+  background-color: @background;
+  text-color: @fg;
+  /* font: "  "; */
 }
 
+/*****----- Main Window -----*****/
 window {
     transparency: "real";
     location: west;
@@ -23,10 +23,9 @@ window {
     width: 335px;
     height: 60%;
     padding: 25px;
-    border-radius: 0px 30px 30px 0px;
+    border-radius: 0 30px 30px 0;   /* Top-Left Top-Right Bottom-Right Bottom-Left  */
 
-    background-image: url("~/.config/wallpaper/"); /* 1050x650px */
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: @background;
 }
 
 mainbox {
@@ -36,20 +35,20 @@ mainbox {
 }
 
 listview {
-    enabled:            true;
-    columns:            1;
-    lines:              5;
-    cycle:              false;
-    dynamic:            true;
-    scrollbar:          false;
-    layout:             vertical;
-    reverse:            false;
-    fixed-height:       true;
-    fixed-columns:      true;
+  enabled: true;
+  cycle: false;
+  dynamic: true;
+  scrollbar: false;
+  
+  layout: vertical;
+  fixed-height: true;
+  fixed-columns: true;
+  /* columns: 1; */
+  /* lines: 1; */
 
-    padding: 40px 10px 20px 10px;
-    spacing:            15px;
-    background-color:   transparent;
+  padding: 3% 1% 2% 1%;
+  spacing: 15px;
+  background-color: transparent;
 }
 
 element {
