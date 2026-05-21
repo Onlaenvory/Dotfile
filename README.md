@@ -21,7 +21,7 @@ My personal configuration files for an Arch Linux desktop environment. Built aro
 
 ## 📸 Preview
 
-> ![Desktop Preview](/wallpaper/Preview.png)
+> ![Desktop Preview](Preview.png)
 
 ---
 
