@@ -13,7 +13,6 @@ My personal configuration files for an Arch Linux desktop environment. Built aro
 | **Terminal** | `Kitty` | Fast, GPU-accelerated terminal emulator |
 | **Launcher** | `Rofi` | Window switcher, application launcher, and dmenu replacement |
 | **Notifications** | `Mako` | Lightweight notification daemon for Wayland |
-| **Audio Routing** | `qpwgraph` | PipeWire Graph Qt GUI for audio/video patching |
 | **System Monitor** | `btop` | Game-like terminal-based system monitor |
 | **Visualizer** | `cava` | Console-based Audio Visualizer |
 | **Clock** | `peaclock` | Responsive digital clock for the terminal |
@@ -22,7 +21,7 @@ My personal configuration files for an Arch Linux desktop environment. Built aro
 
 ## 📸 Preview
 
-> `(/home/bamblurboo/pictures/hyprshot/2026-05-21-120737_hyprshot.png)`
+> ![Desktop Preview](/wallpaper/Preview.png)
 
 ---
 
